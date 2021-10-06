@@ -1,0 +1,6 @@
+#container-tela {
+	width: 50rem;
+	height: 30rem;
+
+	display: grid;
+}
