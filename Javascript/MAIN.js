@@ -204,11 +204,20 @@ document.addEventListener("DOMContentLoaded", function (){
 	function ColisCobra() {
 		var morto = false
 
+		// Colisão com parede
 		if (cobra[0][0] > quant_x || cobra[0][1] > quant_y || cobra[0][0] < 1 || cobra[0][1] < 1 ){
 			morto = true
 		}
+
+		// Colisão em si mesma
 		for (var ind in cobra) {
-			if (ind > 0 && cobra[ind] == cobra[0]) {
+			var contagem = 0
+			for (var ind_parcial in cobra[ind]){
+				if (ind > 0 && cobra[ind][ind_parcial] == cobra[0][ind_parcial]){
+					contagem ++ 
+				}
+			}
+			if (contagem == 2){
 				morto = true
 			}
 		}
